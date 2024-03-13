@@ -2,3 +2,71 @@
 @{
     Layout = null;
 }
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Impostazioni generali del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsione del Tempo</title>
+    <!-- Stile CSS del documento -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .day {
+            margin-bottom: 20px;
+        }
+
+        .fascia {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Itera attraverso le previsioni nel modello -->
+    @foreach (var previsione in Model.modello.previsione)
+    {
+        <!-- Intestazione delle previsioni -->
+        <h1>Previsione del Tempo per @Model.modello.previsione</h1>
+
+        <!-- Itera attraverso i giorni in ogni previsione -->
+        @foreach (var giorno in previsione.giorni)
+        {
+            <!-- Contenitore per ogni giorno -->
+            <div class="day">
+                <h2>@giorno.giorno</h2>
+                <!-- Mostra la temperatura minima e massima del giorno -->
+                <p>Temperatura Minima: @giorno.tMinGiorno &#8451;</p>
+                <p>Temperatura Massima: @giorno.tMaxGiorno &#8451;</p>
+
+                <!-- Itera tra le fasce orarie per ogni giorno -->
+                @foreach (var fascia in giorno.fasce)
+                {
+                         <!-- Contenitore per ogni fascia oraria -->
+                         <div class="fascia">
+                         <h3>@fascia.fascia</h3>
+
+                        <!-- Dettagli sulla fascia oraria -->
+                        <p>Ore della Fascia: @fascia.fasciaOre</p>
+                        <p>Icona: @fascia.icona</p>
+                        <p>Descrizione Icona: @fascia.descIcona</p>
+                        <p>Probabilità di Precipitazione: @fascia.descPrecProb</p>
+                        <p>Intensità di Precipitazione: @fascia.descPrecInten</p>
+                        <p>Probabilità di Temperatura: @fascia.descTempProb</p>
+                        <p>Intensità del Vento in Quota: @fascia.descVentoIntQuota</p>
+                        <p>Direzione del Vento in Quota: @fascia.descVentoDirQuota</p>
+                        <p>Intensità del Vento in Valle: @fascia.descVentoIntValle</p>
+                        <p>Direzione del Vento in Valle: @fascia.descVentoDirValle</p>
+                        <p>Icona del Vento in Quota: @fascia.iconaVentoQuota</p>
+                        <p>Zero Termico: @fascia.zeroTermico</p>
+                    </div>
+                }
+            </div>
+        }
+    }
+</body>
+</html>
