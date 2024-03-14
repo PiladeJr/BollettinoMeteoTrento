@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Previsioni Meteo</title>
     <style>
+        h1
+        {
+            text-align: center;
+        }
         body {
             font-family: Arial, sans-serif;
         }
@@ -23,8 +27,9 @@
             border: 1px solid #ddd;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #1E90FF;
             font-weight: bold;
+            color: white;
         }
         img {
             display: block;
@@ -34,6 +39,12 @@
     </style>
 </head>
 <body>
+    <h1>Meteo Trento</h1>
+    <form action="#" method="post">
+        <label for="data">Inserisci una data:</label>
+        <input type="date" id="data" name="data" required>
+        <button type="submit">Invia</button>
+    </form>
     <table>
         <thead>
             <tr>

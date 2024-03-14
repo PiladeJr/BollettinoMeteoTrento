@@ -10,6 +10,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="SoapCore" Version="1.1.0.48" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BollettinoMeteoTrento.Modelli\BollettinoMeteoTrento.Modelli.csproj" />
   </ItemGroup>
 
 </Project>

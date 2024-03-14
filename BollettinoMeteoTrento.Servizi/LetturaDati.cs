@@ -48,5 +48,17 @@ namespace BollettinoMeteoTrento.Servizi
             }
             return lista;
         }
+     /* private static Task<List<PrevisioniBollettinoMeteoTrento>> RicercaGiorno(RootBollettino modello, DateTime data)
+        {
+            foreach (var previsione in modello.previsione)
+            {
+                // Cerca la previsione per il giorno specifico
+                Giorni giorno = previsione.giorni.Where(g => DateTime.ParseExact(g.giorno, "yyyyMMdd", null) == data).FirstOrDefault();
+                if (giorno != null)
+                    return giorno;
+            }
+            return null;
+        }*/
     }
+
 }
