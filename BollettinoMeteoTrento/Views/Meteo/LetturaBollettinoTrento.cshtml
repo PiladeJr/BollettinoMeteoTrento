@@ -1,0 +1,65 @@
+﻿@model BollettinoMeteoTrento.ViewModels.MeteoLetturaBollettinoTrentoVM
+@{
+    Layout = null;
+  }
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsioni Meteo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Giorno</th>
+                <th>Fascia</th>
+                <th>Previsione</th>
+                <th>Minime</th>
+                <th>Massime</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Previsione in Model.modello)
+            {
+                <tr>
+                    <td>@Previsione.giorno</td>
+                    <td>@Previsione.fascia</td>
+                    <td>
+                        @Previsione.descIcona
+                        <br>
+                        <img src="@Previsione.icona" alt="Icona previsione" width="50">
+                    </td>
+                    <td>@Previsione.tMinGiorno</td>
+                    <td>@Previsione.tMaxGiorno</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

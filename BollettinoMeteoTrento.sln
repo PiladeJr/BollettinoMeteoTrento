@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento", "BollettinoMeteoTrento\BollettinoMeteoTrento.csproj", "{C0A6A2B6-55A1-4C42-A8AF-8FDEC426CE63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BollettinoMeteoTrento", "BollettinoMeteoTrento\BollettinoMeteoTrento.csproj", "{C0A6A2B6-55A1-4C42-A8AF-8FDEC426CE63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.SOAP", "BollettinoMeteoTrento.SOAP\BollettinoMeteoTrento.SOAP.csproj", "{BE48B479-F2BA-49D5-A208-7DA4E89A766B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BollettinoMeteoTrento.Modelli", "BollettinoMeteoTrento.Modelli\BollettinoMeteoTrento.Modelli.csproj", "{7D4EA281-B4C6-4B4F-9A8B-4825F6178806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Modelli", "BollettinoMeteoTrento.Modelli\BollettinoMeteoTrento.Modelli.csproj", "{7D4EA281-B4C6-4B4F-9A8B-4825F6178806}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Servizi", "BollettinoMeteoTrento.Servizi\BollettinoMeteoTrento.Servizi.csproj", "{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.SOAP", "BollettinoMeteoTrento.SOAP\BollettinoMeteoTrento.SOAP.csproj", "{42D9FC97-50BF-4BEC-A62B-9650EF7E0C49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{C0A6A2B6-55A1-4C42-A8AF-8FDEC426CE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0A6A2B6-55A1-4C42-A8AF-8FDEC426CE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0A6A2B6-55A1-4C42-A8AF-8FDEC426CE63}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE48B479-F2BA-49D5-A208-7DA4E89A766B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE48B479-F2BA-49D5-A208-7DA4E89A766B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE48B479-F2BA-49D5-A208-7DA4E89A766B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE48B479-F2BA-49D5-A208-7DA4E89A766B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D4EA281-B4C6-4B4F-9A8B-4825F6178806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D4EA281-B4C6-4B4F-9A8B-4825F6178806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D4EA281-B4C6-4B4F-9A8B-4825F6178806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D4EA281-B4C6-4B4F-9A8B-4825F6178806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D9FC97-50BF-4BEC-A62B-9650EF7E0C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D9FC97-50BF-4BEC-A62B-9650EF7E0C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D9FC97-50BF-4BEC-A62B-9650EF7E0C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D9FC97-50BF-4BEC-A62B-9650EF7E0C49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
