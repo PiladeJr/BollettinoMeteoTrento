@@ -4,7 +4,7 @@ using BollettinoMeteoTrento.SOAP.BusinessLogic;
 var builder = WebApplication.CreateBuilder(args);
 
 builder. Services. AddSoapCore();
-builder.Services.AddScoped<ISoapService, SoapService>0);
+builder.Services.AddScoped<ISOAPService, ServizioSOAP>();
 
 var app = builder.Build();
 
@@ -19,4 +19,4 @@ app.Run();
 
 //app.MapGet("/", () => "Hello World!");
 
-app.Run();
+

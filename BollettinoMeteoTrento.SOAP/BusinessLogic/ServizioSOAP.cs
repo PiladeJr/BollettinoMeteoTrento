@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.ServiceModel;
 
-namespace BollettinoMeteoTrento_.SOAP.BusinessLogic
+namespace BollettinoMeteoTrento.SOAP.BusinessLogic
 {
     // Definizione dell'interfaccia del servizio SOAP
     [ServiceContract]
@@ -14,7 +14,7 @@ namespace BollettinoMeteoTrento_.SOAP.BusinessLogic
     }
 
     // Implementazione del servizio SOAP
-    public class SoapService : ISOAPService
+    public class ServizioSOAP : ISOAPService
     {
         // Metodo per ottenere le previsioni per un determinato giorno
         public Giorni OttieniPrevisione(string GiornoCercato)
@@ -38,10 +38,10 @@ namespace BollettinoMeteoTrento_.SOAP.BusinessLogic
                         RootBollettino modello = JsonConvert.DeserializeObject<RootBollettino>(result);
 
                         // Iterazione attraverso le previsioni per trovare quella corrispondente al giorno cercato
-                        foreach (var previsione in modello.previsione)
+                        foreach (var previsione in modello.previsioneGiorno)
                         {
                             // Restituzione della previsione del giorno cercato se trovata
-                            return previsione.giorni.First(giorni => giorni.giorno.Equals(GiornoCercato));
+                            return previsione.ListaGiorni.First(giorni => giorni.giorno.Equals(GiornoCercato));
                         }
                     }
                 }
@@ -49,5 +49,7 @@ namespace BollettinoMeteoTrento_.SOAP.BusinessLogic
             // Restituzione di null se la previsione per il giorno cercato non è stata trovata
             return null;
         }
+
+       
     }
 }
