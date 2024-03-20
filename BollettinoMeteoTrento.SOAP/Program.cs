@@ -15,7 +15,7 @@ app.UseEndpoints(endpoints =>
     endpoints.UseSoapEndpoint<ISOAPService>("/Service.wsdl", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
 });
 
-app.Run();
+
 
 //app.MapGet("/", () => "Hello World!");
 

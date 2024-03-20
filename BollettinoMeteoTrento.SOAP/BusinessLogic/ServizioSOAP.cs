@@ -9,15 +9,57 @@ namespace BollettinoMeteoTrento.SOAP.BusinessLogic
     public interface ISOAPService
     {
         // Metodo per ottenere le previsioni per un determinato giorno
-        [OperationContract]
+       [OperationContract]
         Giorni OttieniPrevisione(string previsione);
+     //   [OperationContract]
+     //   PrevisioniBollettinoMeteoTrento OttieniPrevisione(string giornoCercato);
     }
-
+    
     // Implementazione del servizio SOAP
-    public class ServizioSOAP : ISOAPService
+    public class ServizioSOAP: ISOAPService
     {
+        public Giorni OttieniPrevisione(string giornoCercato)
+        {
+            string uri = "https://www.meteotrentino.it/protcivtn-meteo/api/front/previsioneOpenDataLocalita?localita=TRENTO";
+
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage response = client.GetAsync(uri).Result)
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        string result = content.ReadAsStringAsync().Result;
+                        RootBollettino modello = JsonConvert.DeserializeObject<RootBollettino>(result);
+                        foreach (var previsione in modello.previsioneGiorno)
+                        {
+                            return previsione.listaGiorni.First(giorni => giorni.giorno.Equals(giornoCercato, StringComparison.Ordinal));
+                        }
+                    }
+                        
+                }
+            }
+                return null;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         // Metodo per ottenere le previsioni per un determinato giorno
-        public Giorni OttieniPrevisione(string GiornoCercato)
+        public Giorni OttieniPrevisione(string giornoCercato)
         {
             // URL dell'API per ottenere le previsioni meteo per la località di Trento
             string uri = "https://www.meteotrentino.it/protcivtn-meteo/api/front/previsioneOpenDataLocalita?localita=TRENTO";
@@ -48,8 +90,6 @@ namespace BollettinoMeteoTrento.SOAP.BusinessLogic
             }
             // Restituzione di null se la previsione per il giorno cercato non è stata trovata
             return null;
-        }
-
-       
+        }*/
     }
 }

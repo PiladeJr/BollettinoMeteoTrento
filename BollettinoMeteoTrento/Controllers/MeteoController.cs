@@ -6,6 +6,7 @@ using System;
 using System.Reflection.Metadata;
 using BollettinoMeteoTrento.Servizi;
 using BollettinoMeteoTrento.ViewModels;
+using BollettinoMeteoTrento.SOAP.BusinessLogic;
 
 
 
