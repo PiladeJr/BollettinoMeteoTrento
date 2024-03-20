@@ -32,7 +32,7 @@ namespace BollettinoMeteoTrento.SOAP.BusinessLogic
                         RootBollettino modello = JsonConvert.DeserializeObject<RootBollettino>(result);
                         foreach (var previsione in modello.previsioneGiorno)
                         {
-                            return previsione.listaGiorni.First(giorni => giorni.giorno.Equals(giornoCercato, StringComparison.Ordinal));
+                            return previsione.ListaGiorni.First(giorni => giorni.giorno.Equals(giornoCercato, StringComparison.Ordinal));
                         }
                     }
                         
