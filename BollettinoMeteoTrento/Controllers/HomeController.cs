@@ -15,7 +15,8 @@ namespace BollettinoMeteoTrento.Controllers
 
         public IActionResult Index()
         {
-            return View();
+
+            return Redirect("LetturaBollettinoTrento");
         }
 
         public IActionResult Privacy()

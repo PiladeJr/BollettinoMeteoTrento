@@ -70,7 +70,7 @@ public class RootBollettino
     public string evoluzioneBreve { get; set; }
     public List<object> AllerteList { get; set; }
     public List<Previsione> previsione { get; set; }
-    public List<PrevisioniBollettinoMeteoTrento> previsioneGiorno { get; set; }
+    
     }
 public class PrevisioniBollettinoMeteoTrento
 {
@@ -81,6 +81,6 @@ public class PrevisioniBollettinoMeteoTrento
     public int tMaxGiorno { get; set; }
     public string icona { get; set; }
     public string descTempProb { get; set; }
-    public List<Giorni> ListaGiorni { get; set; }
+    
     }
 }

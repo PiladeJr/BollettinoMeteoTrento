@@ -40,17 +40,13 @@
 </head>
 <body>
     <h1>Meteo Trento</h1>
-      <form action="#" method="post">
-        <label for="data">Inserisci una data:</label>
-        <input type="date" id="data" name="data" required>
-        <button type="submit">Invia</button>
-      </form>
+
     <table>
         <thead>
             <tr>
                 <th>Giorno</th>
-                <th>Fascia</th>
                 <th>Previsione</th>
+                <th>Fascia</th>
                 <th>Minime</th>
                 <th>Massime</th>
             </tr>
@@ -60,12 +56,15 @@
             {
                 <tr>
                     <td>@Previsione.giorno</td>
-                    <td>@Previsione.fascia</td>
                     <td>
                         @Previsione.descIcona
                         <br>
                         <img src="@Previsione.icona" alt="Icona previsione" width="50">
+                        
+                        
                     </td>
+                    <td>@Previsione.fascia</td>
+                    
                     <td>@Previsione.tMinGiorno</td>
                     <td>@Previsione.tMaxGiorno</td>
                 </tr>

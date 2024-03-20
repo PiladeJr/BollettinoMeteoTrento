@@ -15,6 +15,7 @@ namespace BollettinoMeteoTrento.Controllers;
 
 public class MeteoController : Controller
 {
+    [HttpGet("/LetturaBollettinoTrento")]
     public async Task<IActionResult> LetturaBollettinoTrento()
     {
         List<PrevisioniBollettinoMeteoTrento> listaDatiMeteo = LetturaDati.Lettura().Result;
