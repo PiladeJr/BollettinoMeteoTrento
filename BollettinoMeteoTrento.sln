@@ -7,9 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BollettinoMeteoTrento", "Bo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BollettinoMeteoTrento.Modelli", "BollettinoMeteoTrento.Modelli\BollettinoMeteoTrento.Modelli.csproj", "{7D4EA281-B4C6-4B4F-9A8B-4825F6178806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.Servizi", "BollettinoMeteoTrento.Servizi\BollettinoMeteoTrento.Servizi.csproj", "{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BollettinoMeteoTrento.Servizi", "BollettinoMeteoTrento.Servizi\BollettinoMeteoTrento.Servizi.csproj", "{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BollettinoMeteoTrento.SOAP", "BollettinoMeteoTrento.SOAP\BollettinoMeteoTrento.SOAP.csproj", "{42D9FC97-50BF-4BEC-A62B-9650EF7E0C49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BollettinoMeteoTrento.SOAP", "BollettinoMeteoTrento.SOAP\BollettinoMeteoTrento.SOAP.csproj", "{42D9FC97-50BF-4BEC-A62B-9650EF7E0C49}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D} = {B56EDCBC-0BC6-4E95-86BE-300C53AB8F4D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

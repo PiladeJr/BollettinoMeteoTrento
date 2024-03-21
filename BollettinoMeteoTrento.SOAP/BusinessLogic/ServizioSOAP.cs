@@ -1,6 +1,8 @@
 ﻿using BollettinoMeteoTrento.Modelli;
 using Newtonsoft.Json;
 using System.ServiceModel;
+using BollettinoMeteoTrento.Servizi;
+using System.Globalization;
 
 namespace BollettinoMeteoTrento.SOAP.BusinessLogic
 {
@@ -8,90 +10,36 @@ namespace BollettinoMeteoTrento.SOAP.BusinessLogic
     [ServiceContract]
     public interface ISOAPService
     {
-        // Metodo per ottenere le previsioni per un determinato giorno
-       [OperationContract]
-        Giorni OttieniPrevisione(string previsione);
-     //   [OperationContract]
-     //   PrevisioniBollettinoMeteoTrento OttieniPrevisione(string giornoCercato);
+        [OperationContract]
+        List<PrevisioniBollettinoMeteoTrento> ricerca(string giornoCercato, DateOnly giornoCercato2);
     }
-    
+
     // Implementazione del servizio SOAP
-    public class ServizioSOAP: ISOAPService
+    public class ServizioSOAP : ISOAPService
     {
-        public Giorni OttieniPrevisione(string giornoCercato)
+        public List<PrevisioniBollettinoMeteoTrento> ricerca(string giornoCercato, DateOnly giornoCercato2)
         {
-            string uri = "https://www.meteotrentino.it/protcivtn-meteo/api/front/previsioneOpenDataLocalita?localita=TRENTO";
+            // Lista che conterrà i risultati della ricerca
+            List<PrevisioniBollettinoMeteoTrento> listaTotale = new List<PrevisioniBollettinoMeteoTrento>();
 
-            using (HttpClient client = new HttpClient())
+            // Esegui la chiamata asincrona per ottenere i dati di previsione meteo
+            listaTotale = BollettinoMeteoTrento.Servizi.LetturaDati.Lettura().Result;
+
+            // Controlla se la data cercata è stata fornita
+            if (!string.IsNullOrEmpty(giornoCercato2.ToString()))
             {
-                using (HttpResponseMessage response = client.GetAsync(uri).Result)
-                {
-                    using (HttpContent content = response.Content)
-                    {
-                        string result = content.ReadAsStringAsync().Result;
-                        RootBollettino modello = JsonConvert.DeserializeObject<RootBollettino>(result);
-                    
-                        foreach (var previsione in modello.previsione)
-                        {
-                            // Restituzione della previsione del giorno cercato se trovata
-                            return previsione.giorni.FirstOrDefault(giorni => giorni.giorno.Equals(giornoCercato));
-                        }
-                    }
-                        
-                }
+                // Filtra i risultati per trovare le previsioni per la data cercata
+                List<PrevisioniBollettinoMeteoTrento> listaGiornoCercato =
+                    listaTotale.Where(p => p.giorno.Equals(giornoCercato2.ToString())).ToList();
+
+                // Restituisci le previsioni trovate
+                return listaGiornoCercato;
             }
-                return null;
+            else
+            {
+                // Se la data cercata non è stata fornita, restituisci tutte le previsioni
+                return listaTotale;
+            }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        // Metodo per ottenere le previsioni per un determinato giorno
-        public Giorni OttieniPrevisione(string giornoCercato)
-        {
-            // URL dell'API per ottenere le previsioni meteo per la località di Trento
-            string uri = "https://www.meteotrentino.it/protcivtn-meteo/api/front/previsioneOpenDataLocalita?localita=TRENTO";
-
-            // Utilizzo di HttpClient per effettuare la richiesta HTTP
-            using (HttpClient client = new HttpClient())
-            {
-                // Invio della richiesta GET all'API e attesa della risposta
-                using (HttpResponseMessage response = client.GetAsync(uri).Result)
-                {
-                    // Estrazione del contenuto della risposta
-                    using (HttpContent content = response.Content)
-                    {
-                        // Lettura dei dati come stringa
-                        string result = content.ReadAsStringAsync().Result;
-
-                        // Deserializzazione della risposta JSON in un oggetto RootBollettino
-                        RootBollettino modello = JsonConvert.DeserializeObject<RootBollettino>(result);
-
-                        // Iterazione attraverso le previsioni per trovare quella corrispondente al giorno cercato
-                        foreach (var previsione in modello.previsioneGiorno)
-                        {
-                            // Restituzione della previsione del giorno cercato se trovata
-                            return previsione.ListaGiorni.First(giorni => giorni.giorno.Equals(GiornoCercato));
-                        }
-                    }
-                }
-            }
-            // Restituzione di null se la previsione per il giorno cercato non è stata trovata
-            return null;
-        }*/
     }
 }
