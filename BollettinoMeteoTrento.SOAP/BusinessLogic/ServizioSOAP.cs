@@ -11,13 +11,13 @@ namespace BollettinoMeteoTrento.SOAP.BusinessLogic
     public interface ISOAPService
     {
         [OperationContract]
-        List<PrevisioniBollettinoMeteoTrento> ricerca(string giornoCercato, DateOnly giornoCercato2);
+        List<PrevisioniBollettinoMeteoTrento> ricerca(string giornoCercato);
     }
 
     // Implementazione del servizio SOAP
     public class ServizioSOAP : ISOAPService
     {
-        public List<PrevisioniBollettinoMeteoTrento> ricerca(string giornoCercato, DateOnly giornoCercato2)
+        public List<PrevisioniBollettinoMeteoTrento> ricerca(string giornoCercato)
         {
             // Lista che conterrà i risultati della ricerca
             List<PrevisioniBollettinoMeteoTrento> listaTotale = new List<PrevisioniBollettinoMeteoTrento>();
@@ -26,11 +26,11 @@ namespace BollettinoMeteoTrento.SOAP.BusinessLogic
             listaTotale = BollettinoMeteoTrento.Servizi.LetturaDati.Lettura().Result;
 
             // Controlla se la data cercata è stata fornita
-            if (!string.IsNullOrEmpty(giornoCercato2.ToString()))
+            if (!string.IsNullOrEmpty(giornoCercato))
             {
                 // Filtra i risultati per trovare le previsioni per la data cercata
                 List<PrevisioniBollettinoMeteoTrento> listaGiornoCercato =
-                    listaTotale.Where(p => p.giorno.Equals(giornoCercato2.ToString())).ToList();
+                    listaTotale.Where(p => p.giorno.Equals(giornoCercato)).ToList();
 
                 // Restituisci le previsioni trovate
                 return listaGiornoCercato;
