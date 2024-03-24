@@ -12,23 +12,32 @@
         h1
         {
             text-align: center;
+            color:white;
+            font-size: 100;
         }
+
         body {
             font-family: Arial, sans-serif;
+            background-color: #1E90FF;
         }
         table {
-            width: 100%;
+            width: auto;
+            background-color: white;
+            margin-left: auto;
+            margin-right: auto;
             border-collapse: collapse;
             margin-bottom: 20px;
+            margin-top:auto;
         }
+
         th, td {
+            font-weight: bold;
             padding: 10px;
-            text-align: left;
+            text-align: center;
             border: 1px solid #ddd;
         }
         th {
-            background-color: #1E90FF;
-            font-weight: bold;
+            background-color: #0f47ae;
             color: white;
         }
         img {
@@ -40,15 +49,16 @@
 </head>
 <body>
     <h1>Meteo Trento</h1>
-
     <table>
         <thead>
             <tr>
                 <th>Giorno</th>
-                <th>Previsione</th>
                 <th>Fascia</th>
-                <th>Minime</th>
-                <th>Massime</th>
+                <th>Previsione</th>
+                <th>Probabilita'<br /> precipitazioni</th>
+                <th>Minima</th>
+                <th>Massima</th>
+                <th>Vento</th>
             </tr>
         </thead>
         <tbody>
@@ -56,17 +66,25 @@
             {
                 <tr>
                     <td>@Previsione.giorno</td>
+
+                    <td>@Previsione.fascia</td>
+
                     <td>
                         @Previsione.descIcona
                         <br>
                         <img src="@Previsione.icona" alt="Icona previsione" width="50">
-                        
-                        
                     </td>
-                    <td>@Previsione.fascia</td>
                     
+                    <td>@Previsione.descPrecProb</td>
+
                     <td>@Previsione.tMinGiorno</td>
                     <td>@Previsione.tMaxGiorno</td>
+                    
+                    <td>
+                        @Previsione.descVentoIntQuota
+                        <br>
+                        <img src="@Previsione.iconaVentoQuota" alt="Icona vento" width="50">
+                    </td>
                 </tr>
             }
         </tbody>

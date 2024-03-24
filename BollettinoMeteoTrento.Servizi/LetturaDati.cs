@@ -41,6 +41,9 @@ namespace BollettinoMeteoTrento.Servizi
                             tMinGiorno = giorno.tMinGiorno,
                             tMaxGiorno = giorno.tMaxGiorno,
                             icona = fascia.icona,
+                            iconaVentoQuota = fascia.iconaVentoQuota,
+                            descVentoIntQuota = fascia.descVentoIntQuota,
+                            descPrecProb = fascia.descPrecProb
                         };
                         lista.Add(output);
                     }

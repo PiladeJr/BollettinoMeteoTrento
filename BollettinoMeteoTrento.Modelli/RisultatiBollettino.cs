@@ -80,7 +80,8 @@ public class PrevisioniBollettinoMeteoTrento
     public int tMinGiorno { get; set; }
     public int tMaxGiorno { get; set; }
     public string icona { get; set; }
-    public string descTempProb { get; set; }
-    
+    public string iconaVentoQuota { get; set; }
+    public string descVentoIntQuota { get; set; }
+    public string descPrecProb { get; set; }
     }
 }
