@@ -18,7 +18,8 @@ public class MeteoController : Controller
     [HttpGet("/LetturaBollettinoTrento")]
     public async Task<IActionResult> LetturaBollettinoTrento()
     {
-        List<PrevisioniBollettinoMeteoTrento> listaDatiMeteo = LetturaDati.Lettura().Result;
+        LetturaDati letturaDati = new LetturaDati();
+        List<PrevisioniBollettinoMeteoTrento> listaDatiMeteo = letturaDati.Lettura().Result;
         MeteoLetturaBollettinoTrentoVM vm = new MeteoLetturaBollettinoTrentoVM();
         {
             vm.modello = listaDatiMeteo;
