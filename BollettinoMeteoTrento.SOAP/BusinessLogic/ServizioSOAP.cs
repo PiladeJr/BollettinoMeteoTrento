@@ -21,9 +21,10 @@ namespace BollettinoMeteoTrento.SOAP.BusinessLogic
         {
             // Lista che conterrà i risultati della ricerca
             List<PrevisioniBollettinoMeteoTrento> listaTotale = new List<PrevisioniBollettinoMeteoTrento>();
+            LetturaDati servizi = new LetturaDati();
 
             // Esegui la chiamata asincrona per ottenere i dati di previsione meteo
-            listaTotale = BollettinoMeteoTrento.Servizi.LetturaDati.Lettura().Result;
+            listaTotale = servizi.Lettura().Result;
 
             // Controlla se la data cercata è stata fornita
             if (!string.IsNullOrEmpty(giornoCercato))

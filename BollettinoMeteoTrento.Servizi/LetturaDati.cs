@@ -8,9 +8,9 @@ using BollettinoMeteoTrento.Modelli;
 
 namespace BollettinoMeteoTrento.Servizi
 {
-    public static class LetturaDati
+    public  class LetturaDati
     {
-        public static async Task<List<PrevisioniBollettinoMeteoTrento>> Lettura()
+        public async Task<List<PrevisioniBollettinoMeteoTrento>> Lettura()
         {
             string result = "";
             List<PrevisioniBollettinoMeteoTrento> lista = new List<PrevisioniBollettinoMeteoTrento>();
